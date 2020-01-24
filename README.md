@@ -6,6 +6,10 @@ A common problem when receiving data from forms, legacy databases or third party
 This kind of work turns out to be repetitive, leaving the code complex with many unnecessary lines.
 Having this situation present in the dayly of many programmers, this project aims to solve these problems.
 
+### Demo
+
+Demo repository: https://github.com/jstrainer/jstrainer-demo
+
 ### Requirements
 
 Java 1.8 or later
