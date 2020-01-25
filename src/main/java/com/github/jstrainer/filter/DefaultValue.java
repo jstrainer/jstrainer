@@ -9,13 +9,11 @@ import java.lang.annotation.Target;
 import com.github.jstrainer.FilteredBy;
 
 @Documented
-@FilteredBy(SuffixFilter.class)
+@FilteredBy(DefaultValueFilter.class)
 @Target({ ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Suffix {
+public @interface DefaultValue {
 
 	String value();
-
-	boolean ifNotPresent() default true;
 
 }

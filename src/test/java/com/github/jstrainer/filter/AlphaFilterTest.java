@@ -20,7 +20,7 @@ public class AlphaFilterTest {
 
 	@ParameterizedTest
 	@MethodSource("arguments")
-	public void testBasic(String input, String output, boolean allowSpace) {
+	public void testFilter(String input, String output, boolean allowSpace) {
 		Alpha annotation = AnnotationFactory.getAlpha(allowSpace, false);
 		Assertions.assertEquals(output, filter.filter(input, annotation));
 	}

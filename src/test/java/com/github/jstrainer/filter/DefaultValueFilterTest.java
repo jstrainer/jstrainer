@@ -8,16 +8,13 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import com.github.jstrainer.AnnotationFactory;
-import com.github.jstrainer.filter.Filter;
-import com.github.jstrainer.filter.StripNewlines;
-import com.github.jstrainer.filter.StripNewlinesFilter;
 
-public class StripNewlinesFilterTest {
+public class DefaultValueFilterTest {
 
-	private final Filter<StripNewlines, String> filter = new StripNewlinesFilter();
+	private final DefaultValueFilter filter = new DefaultValueFilter();
 
-	private final StripNewlines annotation = AnnotationFactory.getStripNewlines();
-	
+	private final DefaultValue annotation = AnnotationFactory.getDefaultValue("abc");
+
 	@ParameterizedTest
 	@MethodSource("arguments")
 	public void testFilter(String input, String output) {
@@ -25,9 +22,10 @@ public class StripNewlinesFilterTest {
 	}
 
 	private static Stream<Arguments> arguments() {
-	    return Stream.of(
-			Arguments.of("\nLorem ipsum\n dolor\r sit amet\r", "Lorem ipsum dolor sit amet"),
-			Arguments.of(null, null)
-	    );
+		return Stream.of( // @formatter:off
+			Arguments.of("def", "def"), 
+			Arguments.of(null, "abc")
+		); // @formatter:on
 	}
+
 }

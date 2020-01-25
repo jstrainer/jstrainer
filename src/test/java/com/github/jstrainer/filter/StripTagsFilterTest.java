@@ -17,7 +17,7 @@ public class StripTagsFilterTest {
 
 	@ParameterizedTest
 	@MethodSource("arguments")
-	public void testBasic(String input, String output) {
+	public void testFilter(String input, String output) {
 		Assertions.assertEquals(output, filter.filter(input, annotation));
 	}
 

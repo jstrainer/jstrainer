@@ -18,7 +18,7 @@ public class LeftPadFilterTest {
 
 	@ParameterizedTest
 	@MethodSource("arguments")
-	public void testBasic(String input, String output, char padChar) {
+	public void testFilter(String input, String output, char padChar) {
 		LeftPad annotation = AnnotationFactory.getPadLeft(10, padChar);
 		Assertions.assertEquals(output, filter.filter(input, annotation));
 	}
