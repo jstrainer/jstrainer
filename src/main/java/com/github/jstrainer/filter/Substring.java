@@ -9,13 +9,15 @@ import java.lang.annotation.Target;
 import com.github.jstrainer.FilteredBy;
 
 @Documented
-@FilteredBy(SuffixFilter.class)
+@FilteredBy(SubstringFilter.class)
 @Target({ ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Suffix {
+public @interface Substring {
 
-	String value();
+	int start();
 
-	boolean ifNotPresent() default true;
+	int end() default DEFAULT_END;
+
+	public static final int DEFAULT_END = Integer.MAX_VALUE;
 
 }

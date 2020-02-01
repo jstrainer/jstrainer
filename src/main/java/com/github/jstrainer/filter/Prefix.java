@@ -16,4 +16,6 @@ public @interface Prefix {
 
 	String value();
 
+	boolean ifNotPresent() default true;
+
 }

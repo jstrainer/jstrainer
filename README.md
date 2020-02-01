@@ -105,6 +105,7 @@ Annotations used in the example:
 
 * @Trim - Remove whitespace from both ends of a string
 * @Filtered - Apply filters to child object
+* [Other filters](#available-filters)
 
 2. Filter the object
 
@@ -142,26 +143,27 @@ System.out.println(person);
 
 ## Available Filters
 
-| Filter         | Description                                                              | Parameters                           |
-|----------------|--------------------------------------------------------------------------|--------------------------------------|
-| @Alpha         | Returns only letters                                                     | allowSpace, allowAccents             |
-| @Alphanum      | Returns only letters and numbers                                         | allowSpace, allowNewline             |
-| @Blacklist     | Returns null if the value is present in the list                         | list                                 |
-| @LeftPad       | Appends zeros (or other character) to the left                           | length, padChar                      |
-| @Numeric       | Returns only numbers                                                     |                                      |
-| @Prefix        | Adds a prefix to a String                                                | value                                |
-| @Replace       | Replaces the first or all occurrences of the search with the replacement | search, replacement, all, ignoreCase |
-| @RightPad      | Appends zeros (or other character) to the right                          | length, padChar                      |
-| @Round         | Rounds a Double                                                          | scale                                |
-| @RoundDown     | Rounds a Double down                                                     | scale                                |
-| @RoundUp       | Rounds a Double up                                                       | scale                                |
-| @StripNewlines | Removes all new line characters                                          |                                      |
-| @StripTags     | Removes all tags                                                         |                                      |
-| @Suffix        | Adds a suffix to a String                                                | value                                |
-| @ToLowerCase   | Converts a String to lower case                                          |                                      |
-| @ToUpperCase   | Converts a String to upper case                                          |                                      |
-| @Trim          | Removes leading and trailing whitespace (or other character)             | stripChar                            |
-| @Whitelist     | Returns null if the value is not present in the list                     | list                                 |
+| Filter | Parameters | Property Type | Description |
+|--------|------------|---------------|-------------|
+| @Alpha | allowSpace, allowAccents | String | Returns only letters |
+| @Alphanum | allowSpace, allowNewline | String | Returns only letters and numbers |
+| @Blacklist | list | String | Returns null if the value is present in the list |
+| @DefaultValue | value | String | Returns a default value if value is null |
+| @LeftPad | length, padChar | String | Appends zeros (or other character) to the left |
+| @Numeric |  | String | Returns only numbers |
+| @Prefix | value, ifNotPresent | String | Adds a prefix to a String |
+| @Replace | search, replacement, all, ignoreCase | String | Replaces the first or all occurrences of the search with the replacement |
+| @RightPad | length, padChar | String | Appends zeros (or other character) to the right |
+| @Round | scale | Double | Rounds a Double |
+| @RoundDown | scale | Double | Rounds a Double down |
+| @RoundUp | scale | Double | Rounds a Double up |
+| @StripNewlines |  | String | Removes all new line characters |
+| @StripTags |  | String | Removes all tags |
+| @Suffix | value, ifNotPresent | String | Adds a suffix to a String |
+| @ToLowerCase |  | String | Converts a String to lower case |
+| @ToUpperCase |  | String | Converts a String to upper case |
+| @Trim | stripChar | String | Removes leading and trailing whitespace (or other character) |
+| @Whitelist | list | String | Returns null if the value is not present in the list |
 
 ## Creating a custom Filter
 

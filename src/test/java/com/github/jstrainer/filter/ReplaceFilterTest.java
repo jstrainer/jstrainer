@@ -15,7 +15,7 @@ public class ReplaceFilterTest {
 
 	@ParameterizedTest
 	@MethodSource("arguments")
-	public void testBasicWith(String input, String search, String replacement, String output, boolean ignoreCase, boolean all) {
+	public void testFilterWith(String input, String search, String replacement, String output, boolean ignoreCase, boolean all) {
 		final Replace annotation = AnnotationFactory.getReplace(search, replacement, ignoreCase, all);
 		Assertions.assertEquals(output, filter.filter(input, annotation));
 	}

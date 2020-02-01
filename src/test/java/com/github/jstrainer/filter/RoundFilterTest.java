@@ -19,7 +19,7 @@ public class RoundFilterTest {
 
 	@ParameterizedTest
 	@MethodSource("arguments")
-	public void testBasic(Double input, Double output) {
+	public void testFilter(Double input, Double output) {
 		Assertions.assertEquals(output, filter.filter(input, annotation));
 	}
 

@@ -9,24 +9,25 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import com.github.jstrainer.AnnotationFactory;
 
-public class SuffixFilterTest {
+public class SubstringFilterTest {
 
-	private final SuffixFilter filter = new SuffixFilter();
+	private final SubstringFilter filter = new SubstringFilter();
 
 	@ParameterizedTest
 	@MethodSource("arguments")
-	public void testFilter(String input, String output, boolean ifNotPresent) {
-		final Suffix annotation = AnnotationFactory.getSuffix("_suffix", ifNotPresent);
+	public void testFilter(String input, int start, int end, String output) {
+		final Substring annotation = AnnotationFactory.getSubstring(start, end);
+
 		Assertions.assertEquals(output, filter.filter(input, annotation));
 	}
 
 	private static Stream<Arguments> arguments() {
 		return Stream.of( // @formatter:off
-			Arguments.of("string", "string_suffix", true), 
-			Arguments.of("string_suffix", "string_suffix", true), 
-			Arguments.of("string_suffix", "string_suffix_suffix", false), 
-			Arguments.of("", "_suffix", true),
-			Arguments.of(null, null, true)
+			Arguments.of("abcde", 0, 2, "ab"),
+			Arguments.of("abcde", 2, 4, "cd"),
+			Arguments.of("abcde", 1, 0, ""),
+			Arguments.of("abcde", -4, -3, "b"),
+			Arguments.of("abcde", -4, 3, "bc")
 		); // @formatter:on
 	}
 

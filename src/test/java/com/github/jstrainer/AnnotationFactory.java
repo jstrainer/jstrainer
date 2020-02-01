@@ -5,16 +5,18 @@ import java.lang.annotation.Annotation;
 import com.github.jstrainer.filter.Alpha;
 import com.github.jstrainer.filter.Alphanum;
 import com.github.jstrainer.filter.Blacklist;
-import com.github.jstrainer.filter.Numeric;
+import com.github.jstrainer.filter.DefaultValue;
 import com.github.jstrainer.filter.LeftPad;
-import com.github.jstrainer.filter.RightPad;
+import com.github.jstrainer.filter.Numeric;
 import com.github.jstrainer.filter.Prefix;
 import com.github.jstrainer.filter.Replace;
+import com.github.jstrainer.filter.RightPad;
 import com.github.jstrainer.filter.Round;
 import com.github.jstrainer.filter.RoundDown;
 import com.github.jstrainer.filter.RoundUp;
 import com.github.jstrainer.filter.StripNewlines;
 import com.github.jstrainer.filter.StripTags;
+import com.github.jstrainer.filter.Substring;
 import com.github.jstrainer.filter.Suffix;
 import com.github.jstrainer.filter.ToLowerCase;
 import com.github.jstrainer.filter.ToUpperCase;
@@ -155,6 +157,10 @@ public class AnnotationFactory {
 	}
 
 	public static Suffix getSuffix(String value) {
+		return getSuffix(value, true);
+	}
+
+	public static Suffix getSuffix(String value, boolean ifNotPresent) {
 		return new Suffix() {
 
 			@Override
@@ -166,10 +172,19 @@ public class AnnotationFactory {
 			public String value() {
 				return "_suffix";
 			}
+
+			@Override
+			public boolean ifNotPresent() {
+				return ifNotPresent;
+			}
 		};
 	}
 
 	public static Prefix getPrefix(String value) {
+		return getPrefix(value, true);
+	}
+
+	public static Prefix getPrefix(String value, boolean ifNotPresent) {
 		return new Prefix() {
 
 			@Override
@@ -180,6 +195,11 @@ public class AnnotationFactory {
 			@Override
 			public String value() {
 				return "prefix_";
+			}
+
+			@Override
+			public boolean ifNotPresent() {
+				return ifNotPresent;
 			}
 		};
 	}
@@ -309,6 +329,45 @@ public class AnnotationFactory {
 			@Override
 			public boolean all() {
 				return all;
+			}
+		};
+	}
+
+	public static DefaultValue getDefaultValue(String value) {
+		return new DefaultValue() {
+
+			@Override
+			public Class<? extends Annotation> annotationType() {
+				return DefaultValue.class;
+			}
+
+			@Override
+			public String value() {
+				return value;
+			}
+		};
+	}
+
+	public static Substring getSubstring(int start) {
+		return getSubstring(start, Substring.DEFAULT_END);
+	}
+
+	public static Substring getSubstring(int start, int end) {
+		return new Substring() {
+
+			@Override
+			public Class<? extends Annotation> annotationType() {
+				return Substring.class;
+			}
+
+			@Override
+			public int start() {
+				return start;
+			}
+
+			@Override
+			public int end() {
+				return end;
 			}
 		};
 	}
