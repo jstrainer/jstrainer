@@ -30,8 +30,8 @@
 
 	<scm>
 		<url>https://github.com/jstrainer/jstrainer</url>
-		<connection>scm:git:git://github.com/jstrainer/jstrainer.git</connection>
-		<developerConnection>scm:git:git@github.com:jstrainer/jstrainer.git</developerConnection>
+		<connection>scm:git:https://github.com/jstrainer/jstrainer.git</connection>
+		<developerConnection>scm:git:https://github.com/jstrainer/jstrainer.git</developerConnection>
 	</scm>
 
 	<properties>
