@@ -5,6 +5,8 @@
 	<groupId>com.github.jstrainer</groupId>
 	<artifactId>jstrainer</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
+	
+	<name>jStrainer</name>
 	<description>A simple filter chaining mechanism for java objects</description>
 
 	<developers>
