@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.jstrainer</groupId>
 	<artifactId>jstrainer</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	
 	<name>jStrainer</name>
 	<description>A simple filter chaining mechanism for java objects</description>
@@ -33,7 +33,7 @@
 		<url>https://github.com/jstrainer/jstrainer</url>
 		<connection>scm:git:https://github.com/jstrainer/jstrainer.git</connection>
 		<developerConnection>scm:git:https://github.com/jstrainer/jstrainer.git</developerConnection>
-	  <tag>1.0.0</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<properties>
