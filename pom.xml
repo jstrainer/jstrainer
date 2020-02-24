@@ -8,6 +8,7 @@
 	
 	<name>jStrainer</name>
 	<description>A simple filter chaining mechanism for java objects</description>
+	<url>https://github.com/jstrainer/jstrainer</url>
 
 	<developers>
 		<developer>
